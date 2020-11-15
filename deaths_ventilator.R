@@ -1,24 +1,5 @@
 library(openxlsx)
 
-# read data from an Excel file or Workbook object into a data.frame
-# df <- read.xlsx('name-of-your-excel-file.xlsx')
-
-# for writing a data.frame or list of data.frames to an xlsx file
-# write.xlsx(df, 'name-of-your-excel-file.xlsx')
-
-quickExcelPrint=function(rObject,filename="r_excel_tmp.xlsx",overwrite=FALSE){
-  if (filename %in% dir() & overwrite==FALSE){
-    stop(paste0("Excel filename ",filename," already exists! Please either specify another filename or set overwrite to TRUE."))
-  } else{
-    write.xlsx(rObject, filename)
-    shell(paste0("start excel ",filename))
-  }
-}
-
-
-library(openxlsx)
-
-
 # Load data
 data = read.xlsx(xlsxFile = "deaths_ventilator_20201114.xlsx", sheet = 1, skipEmptyRows = FALSE)
 # order data from lattest to newest date
